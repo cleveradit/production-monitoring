@@ -13,7 +13,7 @@ Production Monitoring System untuk PT XYZ Manufacturing: kumpulan query SQL anal
 | SQL Bagian A | Jawaban Soal 1–4 | `sql/soal-1-many-to-many.sql`, `sql/soal-2-cte-product-achievement.sql`, `sql/soal-3-machine-ranking.sql`, `sql/soal-4-recursive-trend.sql` | MySQL |
 | Dashboard API | `GET /api/dashboard`, `GET /api/dashboard/machine/{id}` | `routes/api.php`, `app/Http/Controllers/Api/DashboardController.php`, `app/Services/DashboardService.php` | MySQL |
 | Production Order API | `GET /api/production-orders`, `POST /api/production-results` | `routes/api.php`, `app/Http/Controllers/Api/ProductionOrderController.php`, `app/Http/Controllers/Api/ProductionResultController.php`, `app/Http/Requests/`, `app/Http/Resources/ProductionOrderResource.php`, `app/Services/ProductionOrderService.php`, `app/Services/ProductionResultService.php` | MySQL |
-| Dashboard Web *(rencana)* | Halaman `/` (Blade) yang me-mount Vue | `resources/views/`, `resources/js/` | Dashboard API |
+| Dashboard Web | Halaman `/` (Blade) yang me-mount Vue 3: KPI, 3 chart Chart.js, tabel Top 10 mesin | `routes/web.php`, `resources/views/dashboard.blade.php`, `resources/js/` (`api/client.js`, `composables/useDashboard.js`, `utils/format.js`, `components/*.vue`), `vite.config.js`, `resources/css/app.css` | Dashboard API |
 | Docker | Orkestrasi + bootstrap otomatis (service `app`, `nginx`, `db`, `node`) | `docker-compose.yml`, `docker/php/Dockerfile`, `docker/php/entrypoint.sh`, `docker/nginx/default.conf` | — |
 | Laravel skeleton | Framework, konfigurasi (`.env.example`, timezone `Asia/Jakarta`), tanpa migration; routing API + render error JSON untuk `api/*` | `bootstrap/app.php`, `config/`, `routes/web.php` | MySQL |
 

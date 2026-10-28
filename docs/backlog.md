@@ -27,12 +27,6 @@ Each backlog item follows this format:
 
 <!-- ADD BACKLOG ITEMS BELOW -->
 
-## M5 — Dashboard Vue
-
-**Status:** `OPEN`
-
-**Summary:** Halaman `/` dengan KPI, tabel top 10 mesin, dan 3 chart dari satu panggilan `GET /api/dashboard` (PRD §7.6). Responsif mobile–desktop.
-
 ## M6 — README & uji bersih
 
 **Status:** `OPEN`
