@@ -6,9 +6,7 @@ Status meanings (`DRAFT` / `REVIEW` / `READY` / `DONE`): see [ai-context.md §5 
 
 ## Execution Order
 
-| # | Ticket | Status | Depends On |
-|---|---|---|---|
-| 1 | [TICKET-002 — SQL Bagian A (Soal 1–4)](TICKET-002-sql-bagian-a.md) | `REVIEW` | TICKET-001 |
+_No active tickets. Completed tickets are moved to `Ticket-Implemented/`._
 
 ## Global Agent Rules
 

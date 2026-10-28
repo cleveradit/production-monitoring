@@ -10,7 +10,7 @@ Production Monitoring System untuk PT XYZ Manufacturing: kumpulan query SQL anal
 
 | Component | Responsibility | Code location | Dependencies |
 |---|---|---|---|
-| SQL Bagian A *(rencana)* | Jawaban Soal 1–4 | `sql/soal-1-many-to-many.sql`, `sql/soal-2-cte-product-achievement.sql`, `sql/soal-3-machine-ranking.sql`, `sql/soal-4-recursive-trend.sql` | MySQL |
+| SQL Bagian A | Jawaban Soal 1–4 | `sql/soal-1-many-to-many.sql`, `sql/soal-2-cte-product-achievement.sql`, `sql/soal-3-machine-ranking.sql`, `sql/soal-4-recursive-trend.sql` | MySQL |
 | Dashboard API *(rencana)* | `GET /api/dashboard`, `GET /api/dashboard/machine/{id}` | `routes/api.php` + controller Laravel (ditentukan di tiket M3) | MySQL |
 | Production Order API *(rencana)* | `GET /api/production-orders`, `POST /api/production-results` | `routes/api.php` + controller Laravel (ditentukan di tiket M4) | MySQL |
 | Dashboard Web *(rencana)* | Halaman `/` (Blade) yang me-mount Vue | `resources/views/`, `resources/js/` | Dashboard API |

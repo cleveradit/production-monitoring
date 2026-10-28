@@ -27,12 +27,6 @@ Each backlog item follows this format:
 
 <!-- ADD BACKLOG ITEMS BELOW -->
 
-## M2 — SQL Bagian A (Soal 1–4)
-
-**Status:** `OPEN`
-
-**Summary:** Empat file query di `sql/` sesuai PRD §7.1–7.4. Tiap query harus lolos angka verifikasi di PRD. Bergantung pada M1 (database jalan).
-
 ## M3 — API dashboard
 
 **Status:** `OPEN`

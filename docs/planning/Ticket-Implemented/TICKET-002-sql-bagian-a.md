@@ -1,7 +1,7 @@
 # Implementation Plan: TICKET-002 (SQL Bagian A — Soal 1–4)
 
 **Ticket:** `TICKET-002`  
-**Status:** `REVIEW`  
+**Status:** `DONE`  
 **Target Audience:** AI Developer Agents  
 **Depends On:** `TICKET-001`
 
@@ -81,15 +81,15 @@ Semua file: satu statement `SELECT`/`WITH`, read-only, header komentar singkat (
 
 | Case | Input | Expected Result | Status |
 |---|---|---|---|
-| Soal 1 baris teratas | Jalankan file 1 | `Avitex Alkali Resisting Primer 20 Kg` — 55 / 34; jumlah baris = 43 | `[ ]` |
-| Soal 2 baris teratas | Jalankan file 2 | `Avian Synthetic Enamel Black 5 Kg` — 38 / 87009 / 84416 / 679 / 97 | `[ ]` |
-| Soal 2 tanpa subquery | Periksa teks file 2 | Tidak ada `(SELECT` | `[ ]` |
-| Soal 3 tiga teratas | Jalankan file 3 | Labelling Machine 02 (176666/1572/97/1), Mixing Tank 01 (184727/1471/95/2), Paint Disperser 02 (164486/1402/94/3); 24 baris | `[ ]` |
-| Boundary — ranking seri | File 3 | Dua mesin achievement `94` sama-sama ranking `3`, mesin berikutnya ranking `5` | `[ ]` |
-| Soal 4 tanggal contoh | File 4, level `DATE` | 2026-01-02 → 5223/17/97; 2026-01-03 → 14866/111/100; 2026-01-04 → 6363/52/86 | `[ ]` |
-| Boundary — tanggal kosong | File 4 | 2026-12-27 (dan 6 tanggal kosong lain di D7) muncul dengan 0/0/0 | `[ ]` |
-| Kelengkapan deret | File 4 | 364 baris `DATE`, 12 `MONTH`, 1 `YEAR`, 1 `GRAND TOTAL` | `[ ]` |
-| Failure — tanpa hardcode tanggal | Periksa teks file 4 | Tidak ada literal tanggal `'2026-…'` | `[ ]` |
+| Soal 1 baris teratas | Jalankan file 1 | `Avitex Alkali Resisting Primer 20 Kg` — 55 / 34; jumlah baris = 43 | `[x]` |
+| Soal 2 baris teratas | Jalankan file 2 | `Avian Synthetic Enamel Black 5 Kg` — 38 / 87009 / 84416 / 679 / 97 | `[x]` |
+| Soal 2 tanpa subquery | Periksa teks file 2 | Tidak ada `(SELECT` | `[x]` |
+| Soal 3 tiga teratas | Jalankan file 3 | Labelling Machine 02 (176666/1572/97/1), Mixing Tank 01 (184727/1471/95/2), Paint Disperser 02 (164486/1402/94/3); 24 baris | `[x]` |
+| Boundary — ranking seri | File 3 | Dua mesin achievement `94` sama-sama ranking `3`, mesin berikutnya ranking `5` | `[x]` |
+| Soal 4 tanggal contoh | File 4, level `DATE` | 2026-01-02 → 5223/17/97; 2026-01-03 → 14866/111/100; 2026-01-04 → 6363/52/86 | `[x]` |
+| Boundary — tanggal kosong | File 4 | 2026-12-27 (dan 6 tanggal kosong lain di D7) muncul dengan 0/0/0 | `[x]` |
+| Kelengkapan deret | File 4 | 364 baris `DATE`, 12 `MONTH`, 1 `YEAR`, 1 `GRAND TOTAL` | `[x]` |
+| Failure — tanpa hardcode tanggal | Periksa teks file 4 | Tidak ada literal tanggal `'2026-…'` | `[x]` |
 
 ---
 
@@ -105,6 +105,8 @@ Expected:
 1. Semua query jalan tanpa error di MySQL 8.4 dengan `sql_mode` default (`ONLY_FULL_GROUP_BY`).
 2. Semua angka di Acceptance Test Matrix cocok.
 
+Hasil: semua sesuai. Soal 1 = 43 baris, Soal 2 = 43 baris, Soal 3 = 24 baris (QC Laboratory 01 seri ranking 3 dengan Paint Disperser 02), Soal 4 = 364 DATE + 12 MONTH + 1 YEAR + 1 GRAND TOTAL. Soal 4 menghasilkan 9 tanggal 0/0/0: 7 tanggal D7 + 2026-01-05 dan 2026-08-19 yang hanya berisi hasil WO `OPEN` dengan qty 0 (D3) — sesuai data, bukan bug.
+
 ---
 
 ## 7. Out of Scope
@@ -118,7 +120,7 @@ Expected:
 ## 8. Completion Checklist
 
 - [x] Section 1 fully filled and status set correctly.
-- [ ] All Non-Negotiable Technical Contract items implemented.
-- [ ] Acceptance Test Matrix completed.
-- [ ] Verification commands executed successfully.
-- [ ] No out-of-scope changes introduced.
+- [x] All Non-Negotiable Technical Contract items implemented.
+- [x] Acceptance Test Matrix completed.
+- [x] Verification commands executed successfully.
+- [x] No out-of-scope changes introduced.
