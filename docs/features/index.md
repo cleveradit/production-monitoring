@@ -11,3 +11,4 @@ For a full understanding, start with [architecture.md](../architecture.md) and [
 | Doc | Description | Key files |
 |---|---|---|
 | [sql-bagian-a](sql-bagian-a.md) | Query SQL Soal 1–4: many-to-many, CTE, window function, Recursive CTE + ROLLUP | `sql/` |
+| [api-dashboard](api-dashboard.md) | `GET /api/dashboard` dan `GET /api/dashboard/machine/{id}` | `app/Services/DashboardService.php` |

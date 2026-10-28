@@ -27,12 +27,6 @@ Each backlog item follows this format:
 
 <!-- ADD BACKLOG ITEMS BELOW -->
 
-## M3 — API dashboard
-
-**Status:** `OPEN`
-
-**Summary:** `GET /api/dashboard` dan `GET /api/dashboard/machine/{id}` sesuai PRD §7.5.1–7.5.2. `trend_7_days` harus 7 elemen termasuk 2026-12-27 bernilai 0.
-
 ## M4 — API production orders
 
 **Status:** `OPEN`
@@ -50,3 +44,6 @@ Each backlog item follows this format:
 **Status:** `OPEN`
 
 **Summary:** README final sesuai PRD §7.7 (cara jalan, `.env`, import DB, endpoint, deviasi MySQL, asumsi B1–B8, perilaku POST) lalu uji `docker compose down -v` → `up -d` tanpa langkah manual.
+
+**Open questions (resolve during planning):**
+1. `.env.example` saat ini `APP_ENV=local`, `APP_DEBUG=true`, sehingga error JSON API menampilkan stack trace. Ubah ke `production`/`false` untuk penyerahan?

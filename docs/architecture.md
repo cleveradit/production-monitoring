@@ -11,11 +11,11 @@ Production Monitoring System untuk PT XYZ Manufacturing: kumpulan query SQL anal
 | Component | Responsibility | Code location | Dependencies |
 |---|---|---|---|
 | SQL Bagian A | Jawaban Soal 1–4 | `sql/soal-1-many-to-many.sql`, `sql/soal-2-cte-product-achievement.sql`, `sql/soal-3-machine-ranking.sql`, `sql/soal-4-recursive-trend.sql` | MySQL |
-| Dashboard API *(rencana)* | `GET /api/dashboard`, `GET /api/dashboard/machine/{id}` | `routes/api.php` + controller Laravel (ditentukan di tiket M3) | MySQL |
+| Dashboard API | `GET /api/dashboard`, `GET /api/dashboard/machine/{id}` | `routes/api.php`, `app/Http/Controllers/Api/DashboardController.php`, `app/Services/DashboardService.php` | MySQL |
 | Production Order API *(rencana)* | `GET /api/production-orders`, `POST /api/production-results` | `routes/api.php` + controller Laravel (ditentukan di tiket M4) | MySQL |
 | Dashboard Web *(rencana)* | Halaman `/` (Blade) yang me-mount Vue | `resources/views/`, `resources/js/` | Dashboard API |
 | Docker | Orkestrasi + bootstrap otomatis (service `app`, `nginx`, `db`, `node`) | `docker-compose.yml`, `docker/php/Dockerfile`, `docker/php/entrypoint.sh`, `docker/nginx/default.conf` | — |
-| Laravel skeleton | Framework, konfigurasi (`.env.example`, timezone `Asia/Jakarta`), tanpa migration | `app/`, `bootstrap/`, `config/`, `routes/web.php` | MySQL |
+| Laravel skeleton | Framework, konfigurasi (`.env.example`, timezone `Asia/Jakarta`), tanpa migration; routing API + render error JSON untuk `api/*` | `bootstrap/app.php`, `config/`, `routes/web.php` | MySQL |
 
 ## Main flows
 

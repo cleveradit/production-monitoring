@@ -1,7 +1,7 @@
 # Implementation Plan: TICKET-003 (API Dashboard)
 
 **Ticket:** `TICKET-003`  
-**Status:** `REVIEW`  
+**Status:** `DONE`  
 **Target Audience:** AI Developer Agents  
 **Depends On:** `TICKET-001`
 
@@ -94,16 +94,16 @@ Angka ekspektasi dihitung langsung dari database saat planning.
 
 | Case | Input | Expected Result | Status |
 |---|---|---|---|
-| Summary | `GET /api/dashboard` | `total_machine` 24, `running_order` 157, `finished_order` 1243, `today_target` 8572, `today_good` 7811, `today_reject` 26, `achievement` 91.12, `data_date` `2026-12-31` | `[ ]` |
-| Boundary — trend dengan tanggal kosong | `trend_7_days` | Tepat 7 elemen 2026-12-25 … 2026-12-31; 2026-12-27 = `{good_qty: 0, reject_qty: 0, achievement: 0}`; 2026-12-25 = 8919 / 63 / 60.46 | `[ ]` |
-| Status breakdown | `status_breakdown` | RUNNING 157, FINISHED 1243, OPEN 74, CANCELLED 26 (urutan tetap) | `[ ]` |
-| Top machines | `top_machines` | 10 elemen; pertama `DSP02` High Speed Disperser 02 — 260210 / 88.11; terakhir `LBL02` — 176666 / 96.83 | `[ ]` |
-| Detail mesin | `GET /api/dashboard/machine/MXA01` | `Mixing Tank 01`, `total_order` 59, `good_qty` 184727, `reject_qty` 1471, `downtime_minutes` 1527, `achievement` 94.56 | `[ ]` |
-| Boundary — mesin dengan WO CANCELLED | `GET /api/dashboard/machine/WMX02` | `total_order` 57 (termasuk 4 CANCELLED), `good_qty` 132250, `reject_qty` 1109, `downtime_minutes` 1354, `achievement` 81.24 | `[ ]` |
-| Failure — mesin tidak ada | `GET /api/dashboard/machine/XXX99` | HTTP 404, body JSON `{"message": "Machine not found."}` | `[ ]` |
-| Failure — route API tidak ada | `GET /api/tidak-ada` | HTTP 404 JSON (bukan halaman HTML) | `[ ]` |
-| Tipe data | Semua endpoint | Qty & total bertipe integer JSON, achievement number (bukan string) | `[ ]` |
-| Tidak ada migrate | `SHOW TABLES` | Tetap 8 tabel dataset | `[ ]` |
+| Summary | `GET /api/dashboard` | `total_machine` 24, `running_order` 157, `finished_order` 1243, `today_target` 8572, `today_good` 7811, `today_reject` 26, `achievement` 91.12, `data_date` `2026-12-31` | `[x]` |
+| Boundary — trend dengan tanggal kosong | `trend_7_days` | Tepat 7 elemen 2026-12-25 … 2026-12-31; 2026-12-27 = `{good_qty: 0, reject_qty: 0, achievement: 0}`; 2026-12-25 = 8919 / 63 / 60.46 | `[x]` |
+| Status breakdown | `status_breakdown` | RUNNING 157, FINISHED 1243, OPEN 74, CANCELLED 26 (urutan tetap) | `[x]` |
+| Top machines | `top_machines` | 10 elemen; pertama `DSP02` High Speed Disperser 02 — 260210 / 88.11; terakhir `LBL02` — 176666 / 96.83 | `[x]` |
+| Detail mesin | `GET /api/dashboard/machine/MXA01` | `Mixing Tank 01`, `total_order` 59, `good_qty` 184727, `reject_qty` 1471, `downtime_minutes` 1527, `achievement` 94.56 | `[x]` |
+| Boundary — mesin dengan WO CANCELLED | `GET /api/dashboard/machine/WMX02` | `total_order` 57 (termasuk 4 CANCELLED), `good_qty` 132250, `reject_qty` 1109, `downtime_minutes` 1354, `achievement` 81.24 | `[x]` |
+| Failure — mesin tidak ada | `GET /api/dashboard/machine/XXX99` | HTTP 404, body JSON `{"message": "Machine not found."}` | `[x]` |
+| Failure — route API tidak ada | `GET /api/tidak-ada` | HTTP 404 JSON (bukan halaman HTML) | `[x]` |
+| Tipe data | Semua endpoint | Qty & total bertipe integer JSON, achievement number (bukan string) | `[x]` |
+| Tidak ada migrate | `SHOW TABLES` | Tetap 8 tabel dataset | `[x]` |
 
 ---
 
@@ -119,6 +119,8 @@ Expected:
 
 1. Semua angka di Acceptance Test Matrix cocok.
 
+Hasil: semua sesuai angka ekspektasi; tidak ada field angka bertipe string; 404 untuk mesin/route tidak dikenal dikembalikan sebagai `application/json` dengan `message` yang benar. Karena `APP_DEBUG=true` di `.env.example`, body 404 juga berisi `exception`/`trace` — keputusan `APP_DEBUG` dicatat di backlog M6.
+
 ---
 
 ## 7. Out of Scope
@@ -133,7 +135,7 @@ Expected:
 ## 8. Completion Checklist
 
 - [x] Section 1 fully filled and status set correctly.
-- [ ] All Non-Negotiable Technical Contract items implemented.
-- [ ] Acceptance Test Matrix completed.
-- [ ] Verification commands executed successfully.
-- [ ] No out-of-scope changes introduced.
+- [x] All Non-Negotiable Technical Contract items implemented.
+- [x] Acceptance Test Matrix completed.
+- [x] Verification commands executed successfully.
+- [x] No out-of-scope changes introduced.
