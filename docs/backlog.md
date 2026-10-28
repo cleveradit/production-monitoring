@@ -27,12 +27,6 @@ Each backlog item follows this format:
 
 <!-- ADD BACKLOG ITEMS BELOW -->
 
-## M4 — API production orders
-
-**Status:** `OPEN`
-
-**Summary:** `GET /api/production-orders` (search, filter, sort, pagination) dan `POST /api/production-results` dengan validasi PRD §7.5.3–7.5.4.
-
 ## M5 — Dashboard Vue
 
 **Status:** `OPEN`
