@@ -52,7 +52,7 @@ Dua endpoint read-only yang menyediakan data dashboard global dan performa per m
 - `machine_code` dicocokkan case-insensitive (collation `utf8mb4_unicode_ci`): `/machine/mxa01` mengembalikan `MXA01`.
 - Hasil produksi dan downtime diagregasi per WO di CTE terpisah sebelum di-join; join langsung keduanya akan menggandakan good/reject untuk WO dengan banyak baris downtime.
 - Filter tanggal memakai rentang `actual_start >= D AND < D + 1 hari` (setara `DATE(actual_start) = D`) agar index `actual_start` terpakai.
-- Selama `APP_DEBUG=true`, body error JSON ikut berisi `exception`, `file`, dan `trace`; dengan `APP_DEBUG=false` hanya `{"message": "..."}`.
+- `.env.example` memakai `APP_DEBUG=false`, sehingga body error JSON hanya `{"message": "..."}` (422 tetap berisi `errors`). Dengan `APP_DEBUG=true`, body ikut berisi `exception`, `file`, dan `trace`. `.env` yang sudah ada tidak ikut berubah saat `.env.example` diubah.
 
 ## Related
 

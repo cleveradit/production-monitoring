@@ -1,6 +1,6 @@
 # Architecture Map
 
-> **Status:** skeleton Laravel 12 + Docker sudah ada (M1). Baris bertanda *(rencana)* adalah target dari [PRD](initiate-file/prd.md) §7; perbarui dan verifikasi terhadap kode saat milestone terkait selesai.
+> **Status:** seluruh milestone M0–M6 selesai; tabel di bawah sesuai kode saat ini.
 
 ## Summary
 
